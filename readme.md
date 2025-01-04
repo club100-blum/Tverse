@@ -1,10 +1,13 @@
 # TVERSE-FARM
+![image](https://github.com/user-attachments/assets/9c08b897-dd91-4e2d-acf6-4979360ce3e6)
 
-*tbd*
+![image](https://github.com/user-attachments/assets/4d9e1a41-c5e9-447f-a917-95b7b627f8b1)
 
-**TVERSE-FARM** — это мощное программное обеспечение для автоматизированного фарминга в Telegram. Оно идеально подходит как для отдельных аккаунтов, так и для создания многопоточных ферм с простейшей настройкой. Разработано для сообщества [TheClub100](https://t.me/the_club_100).
 
-[Инструкция по установке в Telegraph](https://telegra.ph/Blum-Auto-Farm-dlya-The-Club-100-07-08) *tbd*
+
+Разработано для сообщества [TheClub100](https://t.me/the_club_100).
+
+[Инструкция по установке в Telegraph](https://telegra.ph/Tverse-Auto-Farm-dlya-The-club-100-01-04)
 
 ---
 
