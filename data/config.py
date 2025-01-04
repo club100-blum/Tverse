@@ -12,7 +12,7 @@ MODE = 'lazy'
 # Used only in "telethon", "pyrogram" modes
 API_ID: int = 1488
 API_HASH: str = 'abc'
-REF = '0002daeda30004f0f5020002c70759' #Galaxy (galaxy_0002daeda30004f0f5020002c70759)
+REF = '00055d17e60000bbaae80000f47f1a' #Galaxy (galaxy_00055d17e60000bbaae80000f47f1a)
 
 DELAYS = {
     'ACCOUNT':    [1, 2],       # delay between connections to accounts (the more accounts, the longer the delay)
