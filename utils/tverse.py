@@ -28,7 +28,7 @@ headers = {
     "Referer": "https://app.tonverse.app/",
     "Accept-Language": "en-US,en;q=0.9",
     "Accept-Encoding": "gzip, deflate",
-    'X-Application-Version':'0.7.43'
+    'X-Application-Version':'0.7.52'
 }
 def convert_to_url_encoded(data: str) -> str:
 
