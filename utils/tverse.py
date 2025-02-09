@@ -3,11 +3,12 @@ import random
 
 from aiohttp import ClientSession
 import aiohttp
-
+import re
 from data import config
 from utils.core import logger
 from utils.telegram import AccountInterface
 import urllib.parse
+from bs4 import BeautifulSoup
 
 def gen_xapi(lid=None, mid=None, appid=None):
     return f"{lid}:{mid}:{appid}:{str(random.random())}"
@@ -28,7 +29,6 @@ headers = {
     "Referer": "https://app.tonverse.app/",
     "Accept-Language": "en-US,en;q=0.9",
     "Accept-Encoding": "gzip, deflate",
-    'X-Application-Version':'0.7.52'
 }
 def convert_to_url_encoded(data: str) -> str:
 
@@ -63,7 +63,25 @@ class TverseBot:
     async def logout(self):
 
         await self.session.close()
+    async def start(self):
+        link='https://app.tonverse.app/'
+        headers={
+            'Host':	'app.tonverse.app',
+            'User-Agent':	'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+            'Accept-Language':	'ru'
+        }
 
+        async with aiohttp.ClientSession(headers=headers) as session:
+            async with session.get(link,ssl=False) as response:
+                html = await response.text()
+                soup = BeautifulSoup(html, 'html.parser')
+
+                # Ищем все script-теги и фильтруем вручную
+                for script in soup.find_all('script', {'type': 'text/javascript'}):
+                    if (src := script.get('src')) and '/assets/js/app.js?' in src:
+                        version = src.split('?')[-1]
+                        self.session.headers['X-Application-Version'] = version
+                        return
 
     async def login(self):
 

@@ -39,6 +39,7 @@ async def start(account: AccountInterface):
                 try:
                     tverse = TverseBot(account=account, session=session)
                     await sleep(uniform(*config.DELAYS['ACCOUNT']))
+                    await tverse.start()
                     a=await tverse.login()
                     session_a=a['session']
                     id_a=a['id'] or 'undefined'
@@ -49,7 +50,7 @@ async def start(account: AccountInterface):
                         await tverse.begin_galaxy(session_a)
                         logger.success(f"{us['first_name']} | Created Galaxy")
                     get_galaxy = await tverse.get_galaxy(session_a)
-                    logger.success(f"{us['first_name']} | Galaxy {get_galaxy['title']} | Top: {get_galaxy['rating']}")
+                    logger.success(f"{us['first_name']} | Galaxy {get_galaxy['title']}")
                     await asyncio.sleep(random.randint(1, 3))
                     galaxy_id = get_galaxy['id']
                     boosts = await tverse.boosts(session_a)

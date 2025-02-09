@@ -13,3 +13,4 @@ aiofiles
 pywin32; platform_system == "Windows"
 stream_sqlite
 pydantic
+bs4
